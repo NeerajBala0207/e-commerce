@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <title>All Products-Swag</title>
+    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    
+</head>
+<body>
+    <div class="header">
+    <div class="container">
+        <div class="navbar">
+        <div class="logo">
+            <img src="images/logo.jpg" width="125px" height="50px">
+        </div>
+        <nav>
+            <ul id="Menuitems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="acc.html">Account</a></li>
+            </ul>
+            
+        </nav>
+    <img src="images/cart.png" width="30px" height="30px">
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+    </div>
+    
+</div>
+
+<!-----------------------------account-page------------>
+
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <div class="form-container">
+                    <span onclick="login()">Login</span>
+                    <span onclick="register()">Register</span>
+                    <hr id="Indicator">
+                </div>
+                <form id="Loginform">
+                    <input type="text" id="username" name="username" placeholder="Username" />
+                    <input type="password" id="password" name="password" placeholder="Password" />
+                    <button type="submit" class="btn">login</button>
+                    <a href="">Forgot Password</a>
+                </form>
+                <form id="RegForm">
+                    <input type="text" id="username" name="username" placeholder="Username" />
+                    <input type="email" id="email" name="email" placeholder="Email" />
+                    <input type="password" id="password" name="password" placeholder="Password" />
+                    <button type="submit" class="sighUp">Signup</button>
+                    <a href="">Forgot Password</a>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var LoginForm = document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+    var Indicator = document.getElementById("Indicator");
+    function register(){
+RegForm.style.transform = "translatex (0px)";
+LoginForm.style.transform = "translatex (0px)";
+Indicator.style.transform = "translatex (100px)";
+}
+function login(){
+RegForm.style.transform = "translatex (300px)";
+LoginForm.style.transform = "translateX(300px)";
+Indicator.style.transform = "translatex (0px)";
+}
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA9cnIJRgKjoVuIiorqyCWuohVOFPSc-2c",
+    authDomain: "e-commerce-1c830.firebaseapp.com",
+    databaseURL: "https://e-commerce-1c830-default-rtdb.firebaseio.com",
+    projectId: "e-commerce-1c830",
+    storageBucket: "e-commerce-1c830.appspot.com",
+    messagingSenderId: "401928202020",
+    appId: "1:401928202020:web:c98c1fc23521c0726075b1",
+    measurementId: "G-2ELFFVGQWT"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+sighUp.addEventListener('click',(e) => {
+
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var username = document.getElementById('username').value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+     // Signed in 
+      const user = userCredential.user;
+
+      set(ref(database, 'users/' + user.uid),{
+          username: username,
+          email: email
+      })
+
+      alert('user created!');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      alert(errorMessage);
+    // ..
+    });
+
+});
+
+ login.addEventListener('click',(e)=>{
+   var email = document.getElementById('email').value;
+   var password = document.getElementById('password').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+
+        const dt = new Date();
+         update(ref(database, 'users/' + user.uid),{
+          last_login: dt,
+        })
+
+         alert('User loged in!');
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert(errorMessage);
+  });
+
+ });
+
+const user = auth.currentUser;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    //bla bla bla
+    // ...
+  } else {
+    // User is signed out
+    // ...
+    //bla bla bla
+  }
+});
+
+logout.addEventListener('click',(e)=>{
+
+   signOut(auth).then(() => {
+     // Sign-out successful.
+     alert('user loged out');
+   }).catch((error) => {
+     // An error happened.
+     const errorCode = error.code;
+     const errorMessage = error.message;
+
+        alert(errorMessage);
+   });
+
+});
+
+</script>
+
+</html>

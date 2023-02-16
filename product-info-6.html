@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <title>All Products-Swag</title>
+    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    
+</head>
+<body>
+    <div class="header">
+    <div class="container">
+        <div class="navbar">
+        <div class="logo">
+            <img src="images/logo.jpg" width="125px" height="50px">
+        </div>
+        <nav>
+            <ul id="Menuitems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Account</a></li>
+            </ul>
+            
+        </nav>
+    <img src="images/cart.png" width="30px" height="30px">
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+    </div>
+    
+</div>
+
+
+    <div class="small-container first-product">
+        
+        <div class="row">
+            <div class="col-2">
+                <img src="images/product6.jpg" >
+                </div>
+        <div class="col-2">
+            <p>Home / T-Shirt</p>
+            <h1>Men Maroon Printed T-Shirt</h1>
+            <h4>$35.00</h4>
+            <select>
+                <option>Select Size</option>
+                <option>XXL</option>
+                <option>XL</option>
+                <option>Large</option>
+                <option>Medium</option>
+                <option>Small</option>
+                </select>
+                <input type="number" value="1"> I
+                <a href="" class="btn">Add To Cart</a>
+
+                <h3>Product Details</h3>
+                <p>Introducing the Men's Maroon Printed T-Shirt - a stylish and comfortable option for any casual occasion. Made with high-quality materials and expert tailoring, this t-shirt is designed to provide both style and comfort.
+                    <br><br>
+                    Crafted from soft and breathable cotton, this t-shirt is designed to keep you comfortable all day long. The maroon color creates a bold and stylish look that is perfect for any season. The shirt features a stylish print design on the front, adding a touch of unique style to your wardrobe.</p>
+
+        </div>
+            
+        
+    </div>    
+    
+      
+        </div>
+    
+</div>  
+
+
+
+
+
+<div class="page-btn">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>&#8594; </span>
+    </div>
+</div>
+
+    </div> 
+    
+    
+    
+    <!----------footer------>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/logo-playstore.jpg">
+                        <img src="images/logo-appstore.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo.jpg">
+                    <p>Our Purpose Is To Sustainably Make the PLeasure and Benefits of Sports Accesible to the Many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                          <li>Blog Post</li>
+                          <li>Return Policy</li>
+                          <li>Join Affiliate</li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                          <li>Instagram</li>
+                          <li>Twitter</li>
+                          <li>Youtube</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2020 - SWAG</p>
+        </div>
+    </div>
+    
+    
+    
+    <!---------------js for toogle menu------------------>
+    
+    <script>
+        var Menuitems=document.getElementById("Menuitems");
+        
+        Menuitems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(Menuitems.style.maxHeight == "0px")
+                {
+                    Menuitems.style.maxHeight = "200px"
+                }
+            else
+                {
+                    Menuitems.style.maxHeight = "0px"
+                }
+        }
+    </script>
+    </body>
+</html>
