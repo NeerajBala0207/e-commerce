@@ -1,0 +1,5 @@
+As a driven and self-directed learner, I took on the challenge of creating an e-commerce website from scratch, relying solely on YouTube tutorials and extensive research through Google. The website, named SWAG, is still a work in progress, but through this project, I have gained a wealth of knowledge and skills in web development, including web design, coding, and e-commerce functionality.
+
+Notably, I have successfully created a login page that utilizes Firebase authentication, a secure and reliable platform for user authentication. Additionally, I have implemented a cart page where users can easily add items to their shopping cart, providing a seamless shopping experience.
+
+This project has provided me with practical experience in e-commerce development, and the challenges encountered along the way have enhanced my problem-solving and critical thinking abilities. I am confident that the knowledge and skills I have gained from this project will enable me to continue creating engaging and user-friendly websites in the future.
